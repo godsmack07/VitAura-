@@ -12,6 +12,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@google/genai": "^1.27.0",
+    "@google/generative-ai": "^0.24.1",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.4",
     "@types/multer": "^2.0.0",

@@ -1,13 +1,23 @@
 import express from "express";
 import multer from "multer";
 import { v2 as cloudinary } from "cloudinary";
-import { Corporation, PrismaClient } from "../generated/prisma/client";
+import { PrismaClient } from "../generated/prisma/client";
 import { UploadApiResponse } from "cloudinary";
-const router = express.Router();
+import getIssueAnalysis from "../helpers/gemini_judge";
 
+const router = express.Router();
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 const prisma = new PrismaClient();
+
+
+interface IGenAi{
+  issue:  string,
+  location : string,
+  description : string,
+  mobileNo : string,
+
+}
 
 router.post(
   "/",
@@ -17,20 +27,17 @@ router.post(
     const images = req.files as Express.Multer.File[];
 
     const {
-      issue,
-      location,
-      description,
+      issue ,
+      location ,
+      description ,
       mobileNo,
-      severity,
-      priority,
-      corporation,
-    } = req.body;
+    } = req.body as IGenAi;
+    
 
-    // Basic validation for required fields
-    if (!issue || !location || !corporation || !mobileNo) {
+    if (!issue || !location || !mobileNo) {
       res.status(400).json({
         success: false,
-        message: "Missing required fields.",
+        message: "missing required field",
       });
       return;
     }
@@ -54,19 +61,25 @@ router.post(
       });
 
       const results = await Promise.all(uploadedImages);
-      const imageUrls = results.map((result) => result.secure_url);
 
-      const [latStr, lonStr] = location.split(",");
+      // all the images that are back from cloudinary
+      const imageUrls = results.map((result) => result.secure_url)
+      const imageUrl = imageUrls[0]
+      const analysis = await getIssueAnalysis(imageUrls[0],issue,description)
 
       const dbresponse = await prisma.issue.create({
       data: {
+        image: imageUrl,
         issue : issue,
-        // severity : 
-        // priority : 
         location : location,
+        description : description,
+        mobileNo : mobileNo,
 
-
-        },
+        severity : analysis.severity,
+        priority : analysis.priority,
+        corporation : analysis.corporation,
+        updatedAt: new Date(),
+      } ,
       });
 
       res.status(201).json({
@@ -83,5 +96,6 @@ router.post(
     }
   }
 );
+
 
 export default router;

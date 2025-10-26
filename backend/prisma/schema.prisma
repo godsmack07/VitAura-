@@ -14,13 +14,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Corporation {
-  Electrical
-  Sanitation
-  Civil
-  Disaster
-  Maintanence
-}
+// enum Corporation {
+//   Electrical
+//   Sanitation
+//   Civil
+//   Disaster
+//   Maintanence
+// }
 
 model User {
   id       Int    @id @default(autoincrement())
@@ -29,8 +29,8 @@ model User {
 }
 
 model Issue {
-  id          Int      @id @default(autoincrement())
-  images      String[]
+  id          Int    @id @default(autoincrement())
+  image       String
   issue       String
   location    String
   description String
@@ -38,10 +38,10 @@ model Issue {
 
   severity    String
   priority    String
-  corporation Corporation
-  resolved    Boolean     @default(false)
+  corporation String
+  resolved    Boolean @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime
-  deletedAt DateTime
+  // deletedAt DateTime
 }
