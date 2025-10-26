@@ -1,0 +1,31 @@
+services:
+  postgres_db:
+    container_name: postgres_db
+    image: postgres:16
+    restart: always
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  adminer: #host = postgres_db
+    container_name: postgres_client
+    image: adminer:5.4.0
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+volumes:
+  pgdata:
+
+networks:
+  app-network:
+    driver: bridge

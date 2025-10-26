@@ -1,0 +1,28 @@
+{
+  "name": "backend-vitaura",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc -b ./src/index.ts",
+    "dev": "nodemon ./src/index.ts",
+    "start": "node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.4",
+    "@types/multer": "^2.0.0",
+    "cloudinary": "^2.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "multer": "^2.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2"
+  }
+}
