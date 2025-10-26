@@ -57,33 +57,15 @@ router.post(
       const imageUrls = results.map((result) => result.secure_url);
 
       const [latStr, lonStr] = location.split(",");
-      const lat = parseFloat(latStr);
-      const lon = parseFloat(lonStr);
-
-      if (isNaN(lat) || isNaN(lon)) {
-          res.status(400).json({
-              success: false,
-              message: "Invalid location format. Expected 'latitude,longitude'.",
-          });
-          return;
-      }
 
       const dbresponse = await prisma.issue.create({
-        data: {
-          issue,
-          description,
-          mobileNo,
-          severity,
-          priority,
-          corporation: corporation as Corporation,
-          images: imageUrls,
-          metadata: {
-            create: {
-              lat,
-              lon,
-              location,
-            },
-          },
+      data: {
+        issue : issue,
+        // severity : 
+        // priority : 
+        location : location,
+
+
         },
       });
 

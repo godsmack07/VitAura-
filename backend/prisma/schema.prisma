@@ -22,15 +22,6 @@ enum Corporation {
   Maintanence
 }
 
-model Metadata {
-  id Int @id @default(autoincrement())
-
-  lat      Float
-  lon      Float
-  location String
-  Issue    Issue[]
-}
-
 model User {
   id       Int    @id @default(autoincrement())
   Username String
@@ -38,18 +29,19 @@ model User {
 }
 
 model Issue {
-  id          Int         @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   images      String[]
   issue       String
-  metadata    Metadata    @relation(fields: [metadataId], references: [id])
-  severity    String
-  priority    String
+  location    String
   description String
-  corporation Corporation
   mobileNo    String
 
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime
-  deletedAt  DateTime
-  metadataId Int
+  severity    String
+  priority    String
+  corporation Corporation
+  resolved    Boolean     @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  deletedAt DateTime
 }
