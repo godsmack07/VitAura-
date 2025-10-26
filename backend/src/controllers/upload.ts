@@ -1,7 +1,7 @@
 import express from "express";
 import multer from "multer";
 import { v2 as cloudinary } from "cloudinary";
-import { PrismaClient } from "../generated/prisma";
+import { Corporation, PrismaClient } from "../generated/prisma/client";
 import { UploadApiResponse } from "cloudinary";
 const router = express.Router();
 
@@ -16,6 +16,26 @@ router.post(
   async (req: express.Request, res: express.Response): Promise<void> => {
     const images = req.files as Express.Multer.File[];
 
+    const {
+      issue,
+      location,
+      description,
+      mobileNo,
+      severity,
+      priority,
+      corporation,
+    } = req.body;
+
+    // Basic validation for required fields
+    if (!issue || !location || !corporation || !mobileNo) {
+      res.status(400).json({
+        success: false,
+        message: "Missing required fields.",
+      });
+      return;
+    }
+
+
     try {
       const uploadedImages = images.map((image) => {
         return new Promise<UploadApiResponse>((resolve, reject) => {
@@ -24,7 +44,7 @@ router.post(
             (error, result) => {
               if (error || !result) {
                 reject(error);
-            } else {
+              } else {
                 resolve(result);
               }
             }
@@ -34,42 +54,49 @@ router.post(
       });
 
       const results = await Promise.all(uploadedImages);
+      const imageUrls = results.map((result) => result.secure_url);
 
-      type eachUpload = {
-        id: number;
-        createdAt: Date;
-        url: string;
-        publicId: string;
-      };
+      const [latStr, lonStr] = location.split(",");
+      const lat = parseFloat(latStr);
+      const lon = parseFloat(lonStr);
 
-      let dbResponse;
-      const uploads: eachUpload[] = [];
-      for (const result of results) {
-        //@ts-ignore
-        dbResponse = await prisma.image.create({
-          data: {
-            publicId: result.public_id,
-            url: result.secure_url,
-          },
-        });
-        uploads.push({
-          id: dbResponse.id,
-          createdAt: dbResponse.createdAt,
-          publicId: dbResponse.publicId,
-          url: dbResponse.url,
-        });
+      if (isNaN(lat) || isNaN(lon)) {
+          res.status(400).json({
+              success: false,
+              message: "Invalid location format. Expected 'latitude,longitude'.",
+          });
+          return;
       }
 
-      res.status(200).json({
+      const dbresponse = await prisma.issue.create({
+        data: {
+          issue,
+          description,
+          mobileNo,
+          severity,
+          priority,
+          corporation: corporation as Corporation,
+          images: imageUrls,
+          metadata: {
+            create: {
+              lat,
+              lon,
+              location,
+            },
+          },
+        },
+      });
+
+      res.status(201).json({
         success: true,
-        message: "images uploaded succesffuly",
-        uploads,
+        message: "Issue noted successfully",
+        data: dbresponse,
       });
     } catch (error) {
-      console.error("Upload error", error);
+      console.error("Error creating issue:", error);
       res.status(500).json({
         success: false,
-        message: "Upload error, invliad upload type",
+        message: "An internal server error occurred.",
       });
     }
   }

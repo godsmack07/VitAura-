@@ -1,6 +1,6 @@
 services:
   postgres_db:
-    container_name: postgres_db
+    container_name: postgres-db
     image: postgres:16
     restart: always
     environment:
@@ -14,8 +14,8 @@ services:
     networks:
       - app-network
 
-  adminer: #host = postgres_db
-    container_name: postgres_client
+  adminer: #host = postgres-db
+    container_name: pg_client
     image: adminer:5.4.0
     restart: always
     ports:
