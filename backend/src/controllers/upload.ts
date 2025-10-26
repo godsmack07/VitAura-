@@ -62,6 +62,8 @@ router.post(
 
       const results = await Promise.all(uploadedImages);
 
+      console.log("CLOUDINARY URL: " + results)
+
       // all the images that are back from cloudinary
       const imageUrls = results.map((result) => result.secure_url)
       const imageUrl = imageUrls[0]

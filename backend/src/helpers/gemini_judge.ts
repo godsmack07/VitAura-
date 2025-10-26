@@ -2,6 +2,7 @@ import {
   GoogleGenAI,
   Part,
 } from "@google/genai";
+import { json } from "stream/consumers";
 
 interface IssueAnalysis {
   severity: string;
@@ -20,7 +21,7 @@ You will be provided with:
 
 Your task:
 Analyze the issue and return a **JSON object** with the following exact fields:
-
+(i am very serious)
 {
   "severity": string, // how severe the issue is (e.g. Low, Medium, High, Critical)
   "priority": string, // how much priority the issue should be given (e.g. Low, Medium, High, Urgent)
@@ -64,47 +65,35 @@ async function getIssueAnalysis(
         data: base64ImageData,
       },
     },
-    { text: `Issue: ${issue}\nDescription: ${description}`}
+    { text: systemPrompt +  `Issue: ${issue}\nDescription: ${description}`}
   ],
   });
 
-
-  console.log(result.data)
-
-
   try {
-    const anyResult = result as any;
-    let jsonText: string | undefined;
-
-    if (anyResult?.response && typeof anyResult.response.text === "function") {
-      jsonText = await anyResult.response.text();
-    } else if (typeof anyResult?.text === "string") {
-      jsonText = anyResult.text;
-    } else if (Array.isArray(anyResult?.outputs)) {
-      jsonText = anyResult.outputs
-        .map((o: any) => {
-          if (typeof o?.content === "string") return o.content;
-          if (Array.isArray(o?.content)) {
-            return o.content.map((c: any) => c?.text ?? "").join("");
-          }
-          return "";
-        })
-        .join("\n");
-    }
-
-    if (!jsonText) {
-      throw new Error("couldn't generate response");
-    }
-
-    const parsed = JSON.parse(jsonText) as IssueAnalysis;
-    return parsed;
-
+    // @ts-ignore
+    const text = result.candidates[0].content?.parts[0].text
+    const jsonParse = JSON.parse(extractJson(text||""))
+    console.log(jsonParse)
+    return jsonParse;
   } catch (error) {
     console.error("internal server error:", error);
     throw new Error("error with gemini response.");
   }
 }
 
+function extractJson(text: string): string{
+  const jsonRegex = /```json([\s\S]*?)```/;
+  const match = text.match(jsonRegex);
+
+  if (match && match[1]) {
+    return match[1].trim();
+  }
+  if (text.trim().startsWith('{')) {
+      return text.trim();
+  }
+
+  throw new Error("Could not find valid JSON block in AI response.");
+}
 
 
 
