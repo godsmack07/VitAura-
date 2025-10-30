@@ -1038,10 +1038,6 @@
     min-height: calc(var(--spacing) * 16);
   }
 
-  .min-h-\[60px\] {
-    min-height: 60px;
-  }
-
   .min-h-screen {
     min-height: 100vh;
   }

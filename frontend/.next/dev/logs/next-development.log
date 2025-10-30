@@ -1,9 +1,143 @@
-[00:00:02.116] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:02.290] Server  LOG      ✓ Ready in 1649ms
-[00:00:07.267] Server  LOG      ○ Compiling / ...
-[00:00:11.362] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:11.745] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
-[00:00:12.269] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:12.269] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:12.269] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761482556813}
-[00:00:19.373] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/report color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/report","o":"http://localhost:3000/dashboard/report","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761482563939}
+[00:00:02.299] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:02.517] Server  LOG      ✓ Ready in 2s
+[00:00:08.318] Server  LOG      ○ Compiling / ...
+[00:00:11.883] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:12.351] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:00:12.351] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:12.351] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:12.351] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3001/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761483701872}
+[00:00:16.215] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard/report color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/report","o":"http://localhost:3001/dashboard/report","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761483705734}
+[00:01:02.343] Browser LOG     Submitting FormData with keys:
+[00:01:02.343] Browser LOG     images
+[00:01:02.343] Browser LOG     issue
+[00:01:02.343] Browser LOG     location
+[00:01:02.343] Browser LOG     description
+[00:01:02.343] Browser LOG     mobileNo
+[00:01:02.343] Browser ERROR   Submission failed: {}
+[00:01:27.877] Browser LOG     Submitting FormData with keys:
+[00:01:27.878] Browser LOG     images
+[00:01:27.878] Browser LOG     issue
+[00:01:27.878] Browser LOG     location
+[00:01:27.878] Browser LOG     description
+[00:01:27.878] Browser LOG     mobileNo
+[00:01:27.878] Browser ERROR   Submission failed: {}
+[00:08:41.390] Browser LOG     Submitting FormData with keys:
+[00:08:41.390] Browser LOG     images
+[00:08:41.390] Browser LOG     issue
+[00:08:41.390] Browser LOG     location
+[00:08:41.390] Browser LOG     description
+[00:08:41.390] Browser LOG     mobileNo
+[00:08:41.390] Browser ERROR   Submission failed: {}
+[00:08:45.443] Browser LOG     Submitting FormData with keys:
+[00:08:45.443] Browser LOG     images
+[00:08:45.443] Browser LOG     issue
+[00:08:45.443] Browser LOG     location
+[00:08:45.443] Browser LOG     description
+[00:08:45.443] Browser LOG     mobileNo
+[00:08:45.443] Browser ERROR   Submission failed: {}
+[00:08:46.248] Browser LOG     Submitting FormData with keys:
+[00:08:46.248] Browser LOG     images
+[00:08:46.248] Browser LOG     issue
+[00:08:46.248] Browser LOG     location
+[00:08:46.248] Browser LOG     description
+[00:08:46.248] Browser LOG     mobileNo
+[00:08:46.248] Browser ERROR   Submission failed: {}
+[00:09:53.746] Browser LOG     Submitting FormData with keys:
+[00:09:53.747] Browser LOG     images
+[00:09:53.747] Browser LOG     issue
+[00:09:53.747] Browser LOG     location
+[00:09:53.747] Browser LOG     description
+[00:09:53.747] Browser LOG     mobileNo
+[00:09:53.747] Browser ERROR   Submission failed: {}
+[00:11:13.779] Server  LOG      ✓ Compiled in 161ms
+[00:11:23.404] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:23.916] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:11:24.346] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:11:24.347] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/report","route":"/dashboard/report"}
+[00:11:24.347] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard/report color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/report","o":"http://localhost:3001/dashboard/report","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761484373868}
+[00:11:48.984] Browser LOG     Submitting FormData with keys:
+[00:11:48.984] Browser LOG     images
+[00:11:48.984] Browser LOG     issue
+[00:11:48.984] Browser LOG     location
+[00:11:48.984] Browser LOG     description
+[00:11:48.984] Browser LOG     mobileNo
+[00:12:25.563] Browser LOG     Upload successful!
+[00:12:29.665] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761484439009}
+[00:22:23.810] Server  LOG      ✓ Compiled in 153ms
+[00:22:39.389] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:22:40.157] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:22:40.157] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[00:22:40.157] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761485049678}
+[00:22:42.623] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:22:44.047] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard/report color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/report","o":"http://localhost:3001/dashboard/report","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761485053565}
+[00:23:14.818] Browser LOG     Submitting FormData to API...
+[00:23:16.534] Browser ERROR   Submission failed: {}
+[00:23:51.965] Server  LOG      ✓ Compiled in 130ms
+[00:23:55.741] Browser LOG     Submitting FormData to API...
+[00:24:30.226] Browser LOG     API Response: {"data":{"corporation":"Sanitation","createdAt":"2025-10-26T13:25:55.542Z","description":"so muich garbage here and there ","id":3,"image":"https://res.cloudinary.com/delcjqr59/image/upload/v1761485136/hdzxif2cmecvclak4d18.png","issue":"garbage","location":"vit ap","mobileNo":"989849545","priority":"High","resolved":false,"severity":"High","updatedAt":"2025-10-26T13:25:55.541Z"},"message":"Issue noted successfully","success":true}
+[00:24:30.226] Browser ERROR   Submission failed: {}
+[00:25:59.846] Browser LOG     Submitting FormData to API...
+[00:26:58.481] Browser LOG     API Response: {"data":{"corporation":"Sanitation","createdAt":"2025-10-26T13:28:27.183Z","description":"so muich garbage here and there ","id":4,"image":"https://res.cloudinary.com/delcjqr59/image/upload/v1761485272/oak88pw7knfjusocjuor.png","issue":"garbage","location":"vit ap","mobileNo":"989849545","priority":"Urgent","resolved":false,"severity":"Critical","updatedAt":"2025-10-26T13:28:27.182Z"},"message":"Issue noted successfully","success":true}
+[00:26:58.481] Browser ERROR   Submission failed: {}
+[00:27:25.251] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:25.752] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:27:25.925] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:27:25.925] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[00:27:25.925] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761485335446}
+[00:27:31.499] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:31.778] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:27:31.778] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:27:31.778] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:27:31.778] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3001/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761485341298}
+[00:27:48.012] Browser WARN    Clerk: The prop "redirectUrl" is deprecated and should be replaced with the new "fallbackRedirectUrl" or "forceRedirectUrl" props instead. Learn more: https://clerk.com/docs/guides/custom-redirects#redirect-url-props
+[00:28:54.827] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:28:55.200] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:28:55.420] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:28:55.420] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:28:55.420] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3001/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761485424941}
+[00:29:06.452] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard/report color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/report","o":"http://localhost:3001/dashboard/report","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761485435972}
+[00:30:06.136] Browser LOG     Submitting FormData to API...
+[00:30:11.170] Browser ERROR   Submission failed: {}
+[00:30:34.073] Browser LOG     Submitting FormData to API...
+[00:30:49.642] Browser ERROR   Submission failed: {}
+[00:36:01.494] Browser LOG     Submitting FormData to API...
+[00:36:50.209] Browser LOG     API Response: {"data":{"corporation":"Sanitation","createdAt":"2025-10-26T13:38:15.012Z","description":"garbage","id":5,"image":"https://res.cloudinary.com/delcjqr59/image/upload/v1761485865/kukvtbbroh2v2jwscart.png","issue":"garbage flowing","location":"Dharavi","mobileNo":"9897644545","priority":"Urgent","resolved":false,"severity":"Critical","updatedAt":"2025-10-26T13:38:15.011Z"},"message":"Issue noted successfully","success":true}
+[00:36:50.209] Browser ERROR   Submission failed: {}
+[00:37:18.549] Browser LOG     Submitting FormData to API...
+[00:37:46.904] Browser ERROR   Submission failed: {}
+[00:44:46.636] Browser LOG     Submitting FormData to API...
+[00:45:02.541] Browser ERROR   Submission failed: {}
+[00:46:46.825] Browser LOG     Submitting FormData to API...
+[00:49:17.255] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:49:17.594] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:49:18.163] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:49:18.163] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/report","route":"/dashboard/report"}
+[00:49:18.163] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard/report color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/report","o":"http://localhost:3001/dashboard/report","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761486647648}
+[00:49:51.271] Browser LOG     Submitting FormData to API...
+[00:50:25.163] Browser LOG     API Response: {"data":{"corporation":"Sanitation","createdAt":"2025-10-26T13:51:50.597Z","description":"garbage is flowing off the dustbins","id":6,"image":"https://res.cloudinary.com/delcjqr59/image/upload/v1761486692/odf1wglfsl7tjgcjnv0m.png","issue":"garbage flowing","location":"Dharavi","mobileNo":"9897644545","priority":"Urgent","resolved":false,"severity":"Critical","updatedAt":"2025-10-26T13:51:50.596Z"},"message":"Issue noted successfully","success":true}
+[00:50:25.163] Browser ERROR   Submission failed: {}
+[00:51:28.199] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:51:28.597] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:51:28.883] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:51:28.883] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:51:28.883] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3001/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761486778404}
+[00:59:45.809] Browser WARN    Clerk: The prop "redirectUrl" is deprecated and should be replaced with the new "fallbackRedirectUrl" or "forceRedirectUrl" props instead. Learn more: https://clerk.com/docs/guides/custom-redirects#redirect-url-props
+[01:01:38.353] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:01:39.180] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:01:39.180] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:01:39.180] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3001/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761487388611}
+[01:01:39.180] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[01:01:41.649] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard/report color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/report","o":"http://localhost:3001/dashboard/report","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761487391167}
+[01:02:58.112] Browser LOG     Submitting FormData to API...
+[01:03:03.144] Browser ERROR   Submission failed: {}
+[01:16:14.675] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:16:15.331] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:16:15.331] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[01:16:15.331] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3001/dashboard","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761488264853}
+[01:16:17.267] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[01:16:18.904] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:16:19.162] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[01:16:19.163] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:16:19.163] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:16:19.163] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3001/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3001/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1761488268684}
+[01:16:28.742] Browser WARN    Clerk: The prop "redirectUrl" is deprecated and should be replaced with the new "fallbackRedirectUrl" or "forceRedirectUrl" props instead. Learn more: https://clerk.com/docs/guides/custom-redirects#redirect-url-props

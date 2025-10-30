@@ -246,8 +246,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-ssr] (ecmascript) <export default as Upload>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowLeft$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/arrow-left.js [app-ssr] (ecmascript) <export default as ArrowLeft>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/loader-circle.js [app-ssr] (ecmascript) <export default as Loader2>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$locate$2d$fixed$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__LocateFixed$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/locate-fixed.js [app-ssr] (ecmascript) <export default as LocateFixed>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-check.js [app-ssr] (ecmascript) <export default as CheckCircle2>");
 "use client";
 ;
 ;
@@ -261,18 +259,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 function ReportIssuePage() {
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const fileInputRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const [user, setUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    // --- Updated State (Category removed) ---
+    // --- Updated State (Matches image keys) ---
     const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
-        title: "",
+        issue: "",
         description: "",
-        mobile: "",
+        location: "",
+        mobileNo: "",
         image: null
     });
-    const [location, setLocation] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [locationLoading, setLocationLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [locationError, setLocationError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
-    // --------------------
     const [preview, setPreview] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
@@ -298,98 +292,77 @@ function ReportIssuePage() {
             reader.readAsDataURL(file);
         }
     };
-    // --- New Location Handler ---
-    const handleGetLocation = ()=>{
-        if (!navigator.geolocation) {
-            setLocationError("Geolocation is not supported by your browser.");
-            return;
-        }
-        setLocationLoading(true);
-        setLocationError("");
-        setLocation(null);
-        navigator.geolocation.getCurrentPosition((position)=>{
-            setLocation({
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            });
-            setLocationLoading(false);
-        }, ()=>{
-            setLocationError("Unable to retrieve location. Please grant permission.");
-            setLocationLoading(false);
-        });
-    };
-    // --------------------------
-    // 2. NEW: Mock classification function
-    // This simulates an AI model by checking for keywords in the text.
-    const getMockClassification = (title, description)=>{
-        const combinedText = (title + " " + description).toLowerCase();
-        if (combinedText.includes("garbage") || combinedText.includes("trash") || combinedText.includes("bin") || combinedText.includes("hygiene")) {
-            return "Sanitation";
-        }
-        if (combinedText.includes("pothole") || combinedText.includes("road") || combinedText.includes("street")) {
-            return "Roads & Infra";
-        }
-        if (combinedText.includes("water") || combinedText.includes("drainage") || combinedText.includes("leak")) {
-            return "Water & Drainage";
-        }
-        if (combinedText.includes("light") || combinedText.includes("lamp") || combinedText.includes("electricity") || combinedText.includes("power")) {
-            return "Electricity";
-        }
-        if (combinedText.includes("park") || combinedText.includes("bench") || combinedText.includes("green")) {
-            return "Parks & Rec";
-        }
-        return "Other"; // Default
-    };
     // --- MODIFIED HANDLESUBMIT FUNCTION ---
-    const handleSubmit = (e)=>{
+    const handleSubmit = async (e)=>{
         e.preventDefault();
         setError("");
         setLoading(true);
-        // --- Updated Validation (Category removed) ---
-        if (!formData.title || !formData.description || !formData.image || !formData.mobile || !location) {
-            setError("Please fill in all fields, upload an image, and provide a location");
+        // --- Validation ---
+        if (!formData.issue || !formData.description || !formData.location || !formData.mobileNo || !formData.image) {
+            setError("Please fill in all fields (issue, description, location, mobile no) and upload an image.");
             setLoading(false);
             return;
         }
-        // ------------------------
-        // --- Fake Upload Simulation ---
-        console.log("Simulating file upload...");
-        setTimeout(()=>{
-            // 3. Get department from mock classification
-            const department = getMockClassification(formData.title, formData.description);
-            // 4. Create new issue and save to localStorage
+        // --- Create FormData to send ---
+        const data = new FormData();
+        data.append("images", formData.image);
+        data.append("issue", formData.issue);
+        data.append("location", formData.location);
+        data.append("description", formData.description);
+        data.append("mobileNo", formData.mobileNo);
+        console.log("Submitting FormData to API...");
+        try {
+            // Step 1: Send data to your API
+            const response = await fetch("http://localhost:3000/api/upload", {
+                // Use relative path
+                method: "POST",
+                body: data
+            });
+            if (!response.ok) {
+                throw new Error(`Server error: ${response.statusText}`);
+            }
+            // Step 2: Get the JSON response from the API
+            const result = await response.json();
+            console.log("API Response:", result);
+            // Step 3: Extract the department text using the path you provided
+            const department = result.candidates[0].content?.parts[0].text;
+            if (!department) {
+                console.error("Failed to parse department from response:", result);
+                throw new Error("Could not parse department from API response.");
+            }
+            console.log(`AI Classified Department: ${department}`);
+            // Step 4: Save the new issue to localStorage
             const newIssue = {
                 id: new Date().getTime().toString(),
-                title: formData.title,
+                title: formData.issue,
                 description: formData.description,
                 image: preview,
                 status: "pending",
-                department: department,
+                department: department.trim(),
                 createdAt: new Date().toISOString()
             };
-            // Get existing issues, or an empty array
             const existingIssues = JSON.parse(localStorage.getItem("allIssues") || "[]");
-            // Add the new issue
             const updatedIssues = [
                 ...existingIssues,
                 newIssue
             ];
-            // Save the updated list back to storage
             localStorage.setItem("allIssues", JSON.stringify(updatedIssues));
-            // --- Continue with success state ---
+            // Step 5: Show success and redirect
             setLoading(false);
             setSuccess(true);
-            console.log(`Upload successful! Classified as: ${department}`);
-            // Redirect to dashboard after 2 seconds
+            console.log("Upload successful and saved to localStorage!");
             setTimeout(()=>{
                 router.push("/dashboard");
             }, 2000);
-        }, 1500); // 1.5 second "upload" delay
+        } catch (err) {
+            console.error("Submission failed:", err);
+            setError(err instanceof Error ? err.message : "An unknown error occurred.");
+            setLoading(false);
+        }
     };
     // --- END OF MODIFIED FUNCTION ---
-    // Removed 'categories' array
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen bg-gradient-to-br from-background via-background to-muted",
+        className: "min-h-screen bg-linear-to-br from-background via-background to-muted",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
                 className: "border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-50",
@@ -404,12 +377,12 @@ function ReportIssuePage() {
                                     className: "w-6 h-6 text-primary-foreground"
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/report/page.tsx",
-                                    lineNumber: 234,
+                                    lineNumber: 167,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                lineNumber: 233,
+                                lineNumber: 166,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -417,23 +390,23 @@ function ReportIssuePage() {
                                 children: "SheharSudhar"
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                lineNumber: 236,
+                                lineNumber: 169,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/dashboard/report/page.tsx",
-                        lineNumber: 232,
+                        lineNumber: 165,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/dashboard/report/page.tsx",
-                    lineNumber: 231,
+                    lineNumber: 164,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/dashboard/report/page.tsx",
-                lineNumber: 230,
+                lineNumber: 163,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -447,14 +420,14 @@ function ReportIssuePage() {
                                 className: "w-4 h-4"
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                lineNumber: 249,
+                                lineNumber: 182,
                                 columnNumber: 11
                             }, this),
                             "Back to Dashboard"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/dashboard/report/page.tsx",
-                        lineNumber: 245,
+                        lineNumber: 178,
                         columnNumber: 9
                     }, this),
                     success ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -469,7 +442,7 @@ function ReportIssuePage() {
                                         children: "Issue Reported Successfully!"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                        lineNumber: 257,
+                                        lineNumber: 190,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -477,23 +450,23 @@ function ReportIssuePage() {
                                         children: "Your issue has been submitted and will be routed to the appropriate department."
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                        lineNumber: 260,
+                                        lineNumber: 193,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                lineNumber: 256,
+                                lineNumber: 189,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/dashboard/report/page.tsx",
-                            lineNumber: 255,
+                            lineNumber: 188,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/dashboard/report/page.tsx",
-                        lineNumber: 254,
+                        lineNumber: 187,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                         onSubmit: handleSubmit,
@@ -512,20 +485,20 @@ function ReportIssuePage() {
                                                         children: "Report a City Issue"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                                        lineNumber: 274,
+                                                        lineNumber: 207,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardDescription"], {
                                                         children: "Provide details about the problem."
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                                        lineNumber: 277,
+                                                        lineNumber: 210,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                lineNumber: 273,
+                                                lineNumber: 206,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -536,66 +509,66 @@ function ReportIssuePage() {
                                                         children: error
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                                        lineNumber: 283,
+                                                        lineNumber: 216,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "space-y-2",
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
-                                                                htmlFor: "title",
-                                                                children: "Issue Title"
+                                                                htmlFor: "issue",
+                                                                children: "Issue"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 290,
+                                                                lineNumber: 223,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
-                                                                id: "title",
-                                                                name: "title",
-                                                                placeholder: "e.g., Large pothole on Main Street",
-                                                                value: formData.title,
+                                                                id: "issue",
+                                                                name: "issue",
+                                                                placeholder: "e.g., Garbage overflowing at bus stop",
+                                                                value: formData.issue,
                                                                 onChange: handleInputChange,
                                                                 disabled: loading
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 291,
+                                                                lineNumber: 224,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                                        lineNumber: 289,
+                                                        lineNumber: 222,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "space-y-2",
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
-                                                                htmlFor: "mobile",
+                                                                htmlFor: "mobileNo",
                                                                 children: "Mobile Number"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 305,
+                                                                lineNumber: 236,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
-                                                                id: "mobile",
-                                                                name: "mobile",
+                                                                id: "mobileNo",
+                                                                name: "mobileNo",
                                                                 type: "tel",
                                                                 placeholder: "e.g., 9876543210",
-                                                                value: formData.mobile,
+                                                                value: formData.mobileNo,
                                                                 onChange: handleInputChange,
                                                                 disabled: loading
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 306,
+                                                                lineNumber: 237,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                                        lineNumber: 304,
+                                                        lineNumber: 235,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -606,7 +579,7 @@ function ReportIssuePage() {
                                                                 children: "Description"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 319,
+                                                                lineNumber: 250,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -620,25 +593,25 @@ function ReportIssuePage() {
                                                                 className: "w-full px-3 py-2 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 320,
+                                                                lineNumber: 251,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                                        lineNumber: 318,
+                                                        lineNumber: 249,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                lineNumber: 281,
+                                                lineNumber: 214,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                        lineNumber: 272,
+                                        lineNumber: 205,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -653,137 +626,62 @@ function ReportIssuePage() {
                                                                 children: "Issue Location"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 339,
+                                                                lineNumber: 270,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardDescription"], {
-                                                                children: "Pinpoint the issue using your device's GPS."
+                                                                children: "Please provide the address or area name."
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 340,
+                                                                lineNumber: 271,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                                        lineNumber: 338,
+                                                        lineNumber: 269,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
                                                         className: "space-y-4",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                                                type: "button",
-                                                                variant: "outline",
-                                                                className: "w-full",
-                                                                onClick: handleGetLocation,
-                                                                disabled: locationLoading,
-                                                                children: [
-                                                                    locationLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
-                                                                        className: "w-4 h-4 mr-2 animate-spin"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                        lineNumber: 353,
-                                                                        columnNumber: 25
-                                                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$locate$2d$fixed$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__LocateFixed$3e$__["LocateFixed"], {
-                                                                        className: "w-4 h-4 mr-2"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                        lineNumber: 355,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    locationLoading ? "Fetching Location..." : "Get Current Location"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 345,
-                                                                columnNumber: 21
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "p-4 rounded-lg bg-muted/50 border border-border min-h-[60px] flex items-center justify-center",
-                                                                children: [
-                                                                    locationLoading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                        className: "text-sm text-muted-foreground",
-                                                                        children: "Waiting for location permission..."
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                        lineNumber: 365,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    locationError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                        className: "text-sm text-destructive",
-                                                                        children: locationError
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                        lineNumber: 370,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    location && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "flex items-center gap-2 text-green-600",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
-                                                                                className: "w-5 h-5"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                                lineNumber: 376,
-                                                                                columnNumber: 27
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                className: "text-sm font-medium",
-                                                                                children: [
-                                                                                    "Location captured:",
-                                                                                    " ",
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                        className: "font-mono text-xs",
-                                                                                        children: [
-                                                                                            "(",
-                                                                                            location.lat.toFixed(4),
-                                                                                            ",",
-                                                                                            " ",
-                                                                                            location.lng.toFixed(4),
-                                                                                            ")"
-                                                                                        ]
-                                                                                    }, void 0, true, {
-                                                                                        fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                                        lineNumber: 379,
-                                                                                        columnNumber: 29
-                                                                                    }, this)
-                                                                                ]
-                                                                            }, void 0, true, {
-                                                                                fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                                lineNumber: 377,
-                                                                                columnNumber: 27
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                        lineNumber: 375,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    !locationLoading && !locationError && !location && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                        className: "text-sm text-muted-foreground",
-                                                                        children: "Location will appear here."
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                        lineNumber: 387,
-                                                                        columnNumber: 25
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 363,
-                                                                columnNumber: 21
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "space-y-2",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
+                                                                    htmlFor: "location",
+                                                                    children: "Location"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/dashboard/report/page.tsx",
+                                                                    lineNumber: 278,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
+                                                                    id: "location",
+                                                                    name: "location",
+                                                                    placeholder: "e.g., Connaught Place, New Delhi",
+                                                                    value: formData.location,
+                                                                    onChange: handleInputChange,
+                                                                    disabled: loading
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/dashboard/report/page.tsx",
+                                                                    lineNumber: 279,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/dashboard/report/page.tsx",
+                                                            lineNumber: 277,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                                        lineNumber: 344,
+                                                        lineNumber: 275,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                lineNumber: 337,
+                                                lineNumber: 268,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -795,20 +693,20 @@ function ReportIssuePage() {
                                                                 children: "Upload Photo"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 398,
+                                                                lineNumber: 294,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardDescription"], {
                                                                 children: "A picture helps us understand the problem."
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 399,
+                                                                lineNumber: 295,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                                        lineNumber: 397,
+                                                        lineNumber: 293,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -825,7 +723,7 @@ function ReportIssuePage() {
                                                                             className: "w-full h-48 object-cover rounded-lg"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                            lineNumber: 410,
+                                                                            lineNumber: 306,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -835,13 +733,13 @@ function ReportIssuePage() {
                                                                             children: "Change Photo"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                            lineNumber: 415,
+                                                                            lineNumber: 311,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                    lineNumber: 409,
+                                                                    lineNumber: 305,
                                                                     columnNumber: 25
                                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                     className: "space-y-2",
@@ -850,7 +748,7 @@ function ReportIssuePage() {
                                                                             className: "w-8 h-8 text-muted-foreground mx-auto"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                            lineNumber: 421,
+                                                                            lineNumber: 317,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -858,7 +756,7 @@ function ReportIssuePage() {
                                                                             children: "Click to upload photo"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                            lineNumber: 422,
+                                                                            lineNumber: 318,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -866,18 +764,18 @@ function ReportIssuePage() {
                                                                             children: "PNG, JPG, GIF up to 10MB"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                            lineNumber: 425,
+                                                                            lineNumber: 321,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                    lineNumber: 420,
+                                                                    lineNumber: 316,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 404,
+                                                                lineNumber: 300,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -888,31 +786,31 @@ function ReportIssuePage() {
                                                                 className: "hidden"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                                lineNumber: 431,
+                                                                lineNumber: 327,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                                        lineNumber: 403,
+                                                        lineNumber: 299,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                                lineNumber: 396,
+                                                lineNumber: 292,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                        lineNumber: 335,
+                                        lineNumber: 266,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                lineNumber: 270,
+                                lineNumber: 203,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -928,7 +826,7 @@ function ReportIssuePage() {
                                                     className: "w-4 h-4 mr-2 animate-spin"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/report/page.tsx",
-                                                    lineNumber: 452,
+                                                    lineNumber: 348,
                                                     columnNumber: 21
                                                 }, this),
                                                 "Submitting..."
@@ -936,7 +834,7 @@ function ReportIssuePage() {
                                         }, void 0, true) : "Submit Issue"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                        lineNumber: 445,
+                                        lineNumber: 341,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -950,36 +848,36 @@ function ReportIssuePage() {
                                             children: "Cancel"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/report/page.tsx",
-                                            lineNumber: 460,
+                                            lineNumber: 356,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/report/page.tsx",
-                                        lineNumber: 459,
+                                        lineNumber: 355,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/report/page.tsx",
-                                lineNumber: 444,
+                                lineNumber: 340,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/dashboard/report/page.tsx",
-                        lineNumber: 268,
+                        lineNumber: 201,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/dashboard/report/page.tsx",
-                lineNumber: 244,
+                lineNumber: 177,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/dashboard/report/page.tsx",
-        lineNumber: 228,
+        lineNumber: 161,
         columnNumber: 5
     }, this);
 }

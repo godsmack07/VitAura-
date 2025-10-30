@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -14,16 +14,10 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  MapPin,
-  Upload,
-  ArrowLeft,
-  Loader2,
-  LocateFixed,
-  CheckCircle2,
-} from "lucide-react";
+import { MapPin, Upload, ArrowLeft, Loader2 } from "lucide-react";
 
-// 1. Copied the Issue interface from the dashboard
+// 1. Added the Issue interface (copied from dashboard)
+// This is needed to create the object for localStorage.
 interface Issue {
   id: string;
   title: string;
@@ -37,21 +31,15 @@ interface Issue {
 export default function ReportIssuePage() {
   const router = useRouter();
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [user, setUser] = useState<any>(null);
 
-  // --- Updated State (Category removed) ---
+  // --- Updated State (Matches image keys) ---
   const [formData, setFormData] = useState({
-    title: "",
+    issue: "",
     description: "",
-    mobile: "",
+    location: "",
+    mobileNo: "",
     image: null as File | null,
   });
-  const [location, setLocation] = useState<{ lat: number; lng: number } | null>(
-    null
-  );
-  const [locationLoading, setLocationLoading] = useState(false);
-  const [locationError, setLocationError] = useState("");
-  // --------------------
 
   const [preview, setPreview] = useState<string>("");
   const [loading, setLoading] = useState(false);
@@ -59,7 +47,7 @@ export default function ReportIssuePage() {
   const [success, setSuccess] = useState(false);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> // Removed HTMLSelectElement
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -77,155 +65,100 @@ export default function ReportIssuePage() {
     }
   };
 
-  // --- New Location Handler ---
-  const handleGetLocation = () => {
-    if (!navigator.geolocation) {
-      setLocationError("Geolocation is not supported by your browser.");
-      return;
-    }
-
-    setLocationLoading(true);
-    setLocationError("");
-    setLocation(null);
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLocation({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        });
-        setLocationLoading(false);
-      },
-      () => {
-        setLocationError(
-          "Unable to retrieve location. Please grant permission."
-        );
-        setLocationLoading(false);
-      }
-    );
-  };
-  // --------------------------
-
-  // 2. NEW: Mock classification function
-  // This simulates an AI model by checking for keywords in the text.
-  const getMockClassification = (
-    title: string,
-    description: string
-  ): string => {
-    const combinedText = (title + " " + description).toLowerCase();
-
-    if (
-      combinedText.includes("garbage") ||
-      combinedText.includes("trash") ||
-      combinedText.includes("bin") ||
-      combinedText.includes("hygiene")
-    ) {
-      return "Sanitation";
-    }
-    if (
-      combinedText.includes("pothole") ||
-      combinedText.includes("road") ||
-      combinedText.includes("street")
-    ) {
-      return "Roads & Infra";
-    }
-
-    if (
-      combinedText.includes("water") ||
-      combinedText.includes("drainage") ||
-      combinedText.includes("leak")
-    ) {
-      return "Water & Drainage";
-    }
-    if (
-      combinedText.includes("light") ||
-      combinedText.includes("lamp") ||
-      combinedText.includes("electricity") ||
-      combinedText.includes("power")
-    ) {
-      return "Electricity";
-    }
-    if (
-      combinedText.includes("park") ||
-      combinedText.includes("bench") ||
-      combinedText.includes("green")
-    ) {
-      return "Parks & Rec";
-    }
-    return "Other"; // Default
-  };
-
   // --- MODIFIED HANDLESUBMIT FUNCTION ---
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
-    // --- Updated Validation (Category removed) ---
+    // --- Validation ---
     if (
-      !formData.title ||
+      !formData.issue ||
       !formData.description ||
-      !formData.image ||
-      !formData.mobile ||
-      !location
+      !formData.location ||
+      !formData.mobileNo ||
+      !formData.image
     ) {
       setError(
-        "Please fill in all fields, upload an image, and provide a location"
+        "Please fill in all fields (issue, description, location, mobile no) and upload an image."
       );
       setLoading(false);
       return;
     }
-    // ------------------------
 
-    // --- Fake Upload Simulation ---
-    console.log("Simulating file upload...");
+    // --- Create FormData to send ---
+    const data = new FormData();
+    data.append("images", formData.image);
+    data.append("issue", formData.issue);
+    data.append("location", formData.location);
+    data.append("description", formData.description);
+    data.append("mobileNo", formData.mobileNo);
 
-    setTimeout(() => {
-      // 3. Get department from mock classification
-      const department = getMockClassification(
-        formData.title,
-        formData.description
-      );
+    console.log("Submitting FormData to API...");
 
-      // 4. Create new issue and save to localStorage
+    try {
+      // Step 1: Send data to your API
+      const response = await fetch("http://localhost:3000/api/upload", {
+        // Use relative path
+        method: "POST",
+        body: data,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.statusText}`);
+      }
+
+      // Step 2: Get the JSON response from the API
+      const result = await response.json();
+      console.log("API Response:", result);
+
+      // Step 3: Extract the department text using the path you provided
+      const department = result.candidates[0].content?.parts[0].text;
+
+      if (!department) {
+        console.error("Failed to parse department from response:", result);
+        throw new Error("Could not parse department from API response.");
+      }
+
+      console.log(`AI Classified Department: ${department}`);
+
+      // Step 4: Save the new issue to localStorage
       const newIssue: Issue = {
         id: new Date().getTime().toString(),
-        title: formData.title,
+        title: formData.issue,
         description: formData.description,
-        image: preview, // Use the Data URL from the preview
+        image: preview, // Use the Data URL from preview state
         status: "pending",
-        department: department, // Use the new auto-generated department
+        department: department.trim(), // Use the AI-generated department
         createdAt: new Date().toISOString(),
       };
 
-      // Get existing issues, or an empty array
       const existingIssues: Issue[] = JSON.parse(
         localStorage.getItem("allIssues") || "[]"
       );
-
-      // Add the new issue
       const updatedIssues = [...existingIssues, newIssue];
-
-      // Save the updated list back to storage
       localStorage.setItem("allIssues", JSON.stringify(updatedIssues));
 
-      // --- Continue with success state ---
+      // Step 5: Show success and redirect
       setLoading(false);
       setSuccess(true);
-      console.log(`Upload successful! Classified as: ${department}`);
+      console.log("Upload successful and saved to localStorage!");
 
-      // Redirect to dashboard after 2 seconds
       setTimeout(() => {
         router.push("/dashboard");
       }, 2000);
-    }, 1500); // 1.5 second "upload" delay
+    } catch (err) {
+      console.error("Submission failed:", err);
+      setError(
+        err instanceof Error ? err.message : "An unknown error occurred."
+      );
+      setLoading(false);
+    }
   };
   // --- END OF MODIFIED FUNCTION ---
 
-  // Removed 'categories' array
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted">
+    <div className="min-h-screen bg-linear-to-br from-background via-background to-muted">
       {/* Navigation */}
       <nav className="border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
@@ -266,7 +199,7 @@ export default function ReportIssuePage() {
           </Card>
         ) : (
           <form onSubmit={handleSubmit}>
-            {/* --- New Two-Column Grid --- */}
+            {/* --- Two-Column Grid --- */}
             <div className="grid md:grid-cols-2 gap-8">
               {/* --- Left Column (Form Fields) --- */}
               <Card className="border-border">
@@ -285,30 +218,28 @@ export default function ReportIssuePage() {
                     </div>
                   )}
 
-                  {/* Title */}
+                  {/* Issue (Renamed from Title) */}
                   <div className="space-y-2">
-                    <Label htmlFor="title">Issue Title</Label>
+                    <Label htmlFor="issue">Issue</Label>
                     <Input
-                      id="title"
-                      name="title"
-                      placeholder="e.g., Large pothole on Main Street"
-                      value={formData.title}
+                      id="issue"
+                      name="issue"
+                      placeholder="e.g., Garbage overflowing at bus stop"
+                      value={formData.issue}
                       onChange={handleInputChange}
                       disabled={loading}
                     />
                   </div>
 
-                  {/* --- CATEGORY DROPDOWN REMOVED --- */}
-
-                  {/* --- Mobile Number --- */}
+                  {/* Mobile Number (Renamed from mobile to mobileNo) */}
                   <div className="space-y-2">
-                    <Label htmlFor="mobile">Mobile Number</Label>
+                    <Label htmlFor="mobileNo">Mobile Number</Label>
                     <Input
-                      id="mobile"
-                      name="mobile"
+                      id="mobileNo"
+                      name="mobileNo"
                       type="tel"
                       placeholder="e.g., 9876543210"
-                      value={formData.mobile}
+                      value={formData.mobileNo}
                       onChange={handleInputChange}
                       disabled={loading}
                     />
@@ -333,61 +264,26 @@ export default function ReportIssuePage() {
 
               {/* --- Right Column (Location & Image) --- */}
               <div className="space-y-8">
-                {/* --- Location Card --- */}
+                {/* --- Location Card (CHANGED TO TEXT INPUT) --- */}
                 <Card className="border-border">
                   <CardHeader>
                     <CardTitle>Issue Location</CardTitle>
                     <CardDescription>
-                      Pinpoint the issue using your device's GPS.
+                      Please provide the address or area name.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      className="w-full"
-                      onClick={handleGetLocation}
-                      disabled={locationLoading}
-                    >
-                      {locationLoading ? (
-                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      ) : (
-                        <LocateFixed className="w-4 h-4 mr-2" />
-                      )}
-                      {locationLoading
-                        ? "Fetching Location..."
-                        : "Get Current Location"}
-                    </Button>
-
-                    {/* Location Status Display */}
-                    <div className="p-4 rounded-lg bg-muted/50 border border-border min-h-[60px] flex items-center justify-center">
-                      {locationLoading && (
-                        <p className="text-sm text-muted-foreground">
-                          Waiting for location permission...
-                        </p>
-                      )}
-                      {locationError && (
-                        <p className="text-sm text-destructive">
-                          {locationError}
-                        </p>
-                      )}
-                      {location && (
-                        <div className="flex items-center gap-2 text-green-600">
-                          <CheckCircle2 className="w-5 h-5" />
-                          <p className="text-sm font-medium">
-                            Location captured:{" "}
-                            <span className="font-mono text-xs">
-                              ({location.lat.toFixed(4)},{" "}
-                              {location.lng.toFixed(4)})
-                            </span>
-                          </p>
-                        </div>
-                      )}
-                      {!locationLoading && !locationError && !location && (
-                        <p className="text-sm text-muted-foreground">
-                          Location will appear here.
-                        </p>
-                      )}
+                    {/* Replaced button with a text input */}
+                    <div className="space-y-2">
+                      <Label htmlFor="location">Location</Label>
+                      <Input
+                        id="location"
+                        name="location"
+                        placeholder="e.g., Connaught Place, New Delhi"
+                        value={formData.location}
+                        onChange={handleInputChange}
+                        disabled={loading}
+                      />
                     </div>
                   </CardContent>
                 </Card>
